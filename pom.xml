@@ -20,6 +20,10 @@
     <module>user-service</module>
     <module>api-gateway</module>
     <module>course-service</module>
+    <module>content-service</module>
+    <module>tracking-service</module>
+    <module>notification-service</module>
+    <module>discovery-server</module>
   </modules>
 
   <properties>
