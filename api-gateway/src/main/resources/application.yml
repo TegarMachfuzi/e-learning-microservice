@@ -1,0 +1,64 @@
+logging:
+  level:
+    org:
+      springframework:
+        cloud:
+          gateway: DEBUG
+    reactor:
+      netty:
+        http:
+          client: DEBUG
+
+spring:
+  application:
+    name:
+  cloud:
+    discovery:
+      enabled: 'true'
+    gateway:
+      routes:
+        - id: user-service
+          uri: lb://user-service
+          predicates:
+            - Path=/api/user/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: user
+                fallbackUri: forward:/fallbacks/user
+
+        - id: course-service
+          uri: lb://course-service
+          predicates: Path=/api/course/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: course
+                fallbackUri: forward:/fallbacks/course
+
+        - id: content-service
+          uri: lb://content-service
+          predicates: Path=/api/content/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: content
+                fallbackUri: forward:/fallbacks/content
+
+        - id: notification-service
+          uri: lb://notification-service
+          predicates: Path=/api/notification/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: notification
+                fallbackUri: forward:/fallbacks/notification
+
+        - id: tracking-service
+          uri: lb://tracking-service
+          predicates: Path=/api/tracking/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: tracking
+                fallbackUri: forward:/fallbacks/tracking
