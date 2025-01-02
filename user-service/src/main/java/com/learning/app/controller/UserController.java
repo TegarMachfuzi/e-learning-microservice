@@ -22,6 +22,7 @@ public class UserController {
         return ResponseEntity.ok("User registered successfully");
     }
 
+    @PostMapping("/login")
     public ResponseEntity<String> loginUser(LoginRequest loginRequest) {
         String token = userService.login(loginRequest);
         return ResponseEntity.ok("token");
