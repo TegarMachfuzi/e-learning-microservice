@@ -7,7 +7,7 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import java.util.Date;
 
 public class JwtTokenProvider {
-    private final String secretKey = "your-secret-key"; // Replace with your secret key
+    private final String secretKey = "yoursecretkeyasadasdasdasdasdasdasdasdasdsadasdsadsadasdasdassadasdasdsadasdasdasdsdasdjsadnasjdnsajdnasjsd"; // Replace with your secret key
     private final long validityInMilliseconds = 3600000; // 1 hour
 
     public String createToken(String username, String role) {

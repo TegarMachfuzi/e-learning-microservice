@@ -1,7 +1,7 @@
 package com.learning.app.utils;
 
 public enum RoleName {
-    ROLE_USER,
-    ROLE_ADMIN,
-    ROLE_MODERATOR
+    ROLE_INSTRUCTOR,
+    ROLE_STUDENT,
+    ROLE_ADMIN
 }
